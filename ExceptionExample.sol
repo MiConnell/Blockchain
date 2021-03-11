@@ -26,7 +26,7 @@ contract ExceptionExample {
         _to.transfer(_amount);
 
         // assert
-        // used to validate invariants
+        // used to validate internal states
         // will not return unused gas
         assert(balanceReceived[msg.sender] >= balanceReceived[msg.sender] - _amount);
     }
