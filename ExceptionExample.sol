@@ -19,11 +19,15 @@ contract ExceptionExample {
         }
 
         // require
+        // used to validate user input
+        // will return unused gas
         require(_amount <= balanceReceived[msg.sender], "not enough money");
         balanceReceived[msg.sender] -= _amount;
         _to.transfer(_amount);
 
         // assert
+        // used to validate invariants
+        // will not return unused gas
         assert(balanceReceived[msg.sender] >= balanceReceived[msg.sender] - _amount);
     }
 }
