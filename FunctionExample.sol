@@ -8,6 +8,7 @@ contract FunctionExample {
     constructor() public {
         owner = msg.sender;
         // automatically executed on deployment and cannot be called again
+        // similar to __init__ in python
     }
 
     function getOwner() public view returns(address) {
@@ -15,6 +16,7 @@ contract FunctionExample {
     }
 
     function convertWeiToEther(uint _amountInWei) public pure returns(uint) {
+        // pure are only against your personal copy of the blockchain so they don't need to be mined
         return _amountInWei / 1 ether;
 
     }
@@ -55,6 +57,7 @@ contract FunctionExample {
         function () external payable {
             //fallback function
             // argument data is in msg.data
+            // called when a transaction without a function call is sent to the smart contract
             receiveMoney();
         }
     }
