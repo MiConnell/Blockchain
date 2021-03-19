@@ -5,7 +5,7 @@ contract SimpleWallet {
 
     address public owner;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
@@ -16,11 +16,11 @@ contract SimpleWallet {
     }
 
     // use modifier to ensure only the owner can interact with the funds
-    function withdrawMoney(address payable _to, uint amount) public onlyOwner {
+    function withdrawMoney(address payable _to, uint _amount) public onlyOwner {
         _to.transfer(_amount);
     }
 
-    function() external payable {
+    fallback() external payable {
 
     }
 
