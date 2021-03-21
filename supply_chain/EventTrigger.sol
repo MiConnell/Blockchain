@@ -32,7 +32,7 @@ contract ItemManager {
 
         items[_itemIndex]._state = SupplyChainState.Paid;
 
-        emit SupplyChainStep(itemIndex, uint(items[itemIndex]._state));
+        emit SupplyChainStep(_itemIndex, uint(items[itemIndex]._state));
 
     }
 
@@ -41,8 +41,7 @@ contract ItemManager {
         require(items[_itemIndex]._state == SupplyChainState.Paid, "Item is not yet paid for");
         items[_itemIndex]._state = SupplyChainState.Delivered;
 
-        emit SupplyChainStep(itemIndex, uint(items[itemIndex]._state));
-
+        emit SupplyChainStep(_itemIndex, uint(items[itemIndex]._state));
 
     }
 }
