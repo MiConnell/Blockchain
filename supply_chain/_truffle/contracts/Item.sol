@@ -1,5 +1,7 @@
 pragma solidity ^0.7.4;
 
+import "./ItemManager.sol";
+
 contract Item {
 
     uint public priceInWei;

@@ -1,5 +1,8 @@
 pragma solidity ^0.7.4;
 
+import "./Ownable.sol";
+import "./Item.sol";
+
 contract ItemManager is Ownable {
 
     enum SupplyChainState{Created, Paid, Delivered}
