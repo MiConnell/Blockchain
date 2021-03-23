@@ -1,3 +1,5 @@
+pragma solidity ^0.7.4;
+
 contract ItemManager is Ownable {
 
     enum SupplyChainState{Created, Paid, Delivered}

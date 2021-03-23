@@ -1,3 +1,5 @@
+pragma solidity ^0.7.4;
+
 contract Item {
 
     uint public priceInWei;
