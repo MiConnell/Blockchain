@@ -6,7 +6,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { loaded: false, cost: 0, itemName: "Example One"};
+  state = { loaded: false, cost: 0, itemName: "Example_one"};
 
   componentDidMount = async () => {
     try {
@@ -19,14 +19,14 @@ class App extends Component {
       // Get the contract instance.
         this.networkId = await this.web3.eth.net.getId();
 
-      this.itemManager = new web3.eth.Contract(
+      this.itemManager = new this.web3.eth.Contract(
         ItemManagerContract.abi,
-        ItemManagerContract.networks[networkId] && ItemManagerContract.networks[networkId].address,
+        ItemManagerContract.networks[this.networkId] && ItemManagerContract.networks[this.networkId].address,
       );
 
-        this.item = new web3.eth.Contract(
+        this.item = new this.web3.eth.Contract(
         ItemContract.abi,
-        ItemContract.networks[networkId] && ItemContract.networks[networkId].address,
+        ItemContract.networks[this.networkId] && ItemContract.networks[this.networkId].address,
       );
 
       // Set web3, accounts, and contract to the state, and then proceed with an
@@ -41,7 +41,7 @@ class App extends Component {
     }
   };
 
-    handliInputChange = (event) => {
+    handleInputChange = (event) => {
         const target = event.target;
         const value = target.type == "checkbox" ? target.checked : target.value;
         const name = target.name;
@@ -64,8 +64,8 @@ class App extends Component {
         <h1>Supply Chain Gang!</h1>
         <h2>Items</h2>
             <h2>Add Items</h2>
-            Cost in Wei: <input type="text" name="cost" value={this.state.cost} onChange={} />
-            Item Identifier: <input type="text" name="itemName" value={this.state.itemName} onChange={ } />
+            Cost in Wei: <input type="text" name="cost" value={this.state.cost} onChange={this.handleInputChange} />
+            Item Identifier: <input type="text" name="itemName" value={this.state.itemName} onChange={this.handleSubmit} />
             <button type="button" onClick={this.handleSubmit}>Create New Item</button>
       </div>
     );
