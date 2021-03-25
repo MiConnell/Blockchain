@@ -22,7 +22,7 @@ contract FunctionExample {
     }
 
     function destroySmartContract() public {
-        require(msg.sender == owner, "you are not the owner of");
+        require(msg.sender == owner, "you are not the owner");
         selfdestruct(owner);
     }
 

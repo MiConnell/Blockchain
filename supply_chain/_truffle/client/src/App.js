@@ -6,7 +6,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { loaded: false, cost: 0, itemName: "Example_one"};
+    state = { loaded: false, cost: 0, itemName: "Example_one" };
 
   componentDidMount = async () => {
     try {
